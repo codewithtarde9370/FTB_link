@@ -1,0 +1,60 @@
+.card {
+    background-color: #fffffe;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    margin: 20px;
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  .title {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .key {
+    padding-right: 5px;
+    font-weight: 700;
+    color: #444;
+  }
+  
+  .target, 
+  .target:hover, 
+  .target:focus {
+    color: #007bff;
+    text-decoration: none;
+    word-break: break-all;
+  }
+  
+  .target:hover {
+    text-decoration: underline;
+  }
+  
+  .views, .timestamp {
+    font-size: 14px;
+    color: #666;
+    margin-top: 8px;
+  }
+  
+  @media (max-width: 768px) {
+    .card {
+      padding: 10px;
+      margin: 10px;
+    }
+  
+    .title {
+      font-size: 16px;
+    }
+  
+    .views, .timestamp {
+      font-size: 12px;
+    }
+  }
+  

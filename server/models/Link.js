@@ -15,11 +15,19 @@ const linkSchema = new Schema({
         type: Number,
         default: 0,
     },
-    title: {
+    title:{
         type: String,
         required: true,
+    },
+    user:{
+        type: Schema.Types.ObjectId,
+        ref: "User",
+        required : true
     }
-},{timestamp:true})
+
+},{
+    timestamps: true,
+  })
 
 const Link = model('Link', linkSchema);
 
