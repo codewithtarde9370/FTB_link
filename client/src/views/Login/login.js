@@ -23,11 +23,14 @@ function Login() {
 
       if(response.data.success) {
         toast.success(response.data.message)
-        console.log(response.data.message)
+        console.log("response.data.message",response.data.message)
        
-        localStorage.setItem('currentUser', JSON.stringify(response.data.data))
+        localStorage.setItem('currentUser', JSON.stringify(response.data.data));
+        console.log("reached here")
         toast.loading('Redirecting to dashboard...')
+        console.log("toast com")
         window.location.href = '/'
+        console.log("redirection com")
       } 
       else {
         console.log(response.data.message)
@@ -59,8 +62,9 @@ function Login() {
           onChange={(e) => setPassword(e.target.value)}
         /> 
 
-        <button className='btn' onClick={loginNow}>Login</button>
-      </form>
+        <button type='button' className='btn' onClick={loginNow}>Login</button>
+      </form> 
+      {/* button should always be giving type  */}
 
       <Link to='/signup' className='link'>Don't have an account? Sign up</Link>
       <Toaster />
