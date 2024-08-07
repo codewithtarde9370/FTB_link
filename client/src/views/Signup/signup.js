@@ -94,7 +94,7 @@ function SignUp() {
           onChange={(e) => setUser({ ...user, dob: e.target.value })}
         />
 
-        <button className='btn' onClick={signup}>Register</button>
+        <button type='button' className='btn' onClick={signup}>Register</button>
       </form>
 
       <Link to='/login' className='link'>Already have an account? Login</Link>
