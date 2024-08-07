@@ -24,9 +24,8 @@ function Navbar() {
         <button className='btn' onClick={() => {
             localStorage.clear();
             toast.success("LoggedOut Successfully!!")
-            setTimeout(()=>{
             window.location.href = '/login'
-            },3000)
+            
         }}>LogOut</button>
       </div>
       <Toaster/>
