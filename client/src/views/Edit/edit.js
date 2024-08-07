@@ -3,6 +3,8 @@ import './edit.css'
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import toast, { Toaster } from 'react-hot-toast';
+import Navbar from '../../components/Navbar/Navbar';
+import Footer from '../../components/Footer/footer';
 
 function Edit() {
     const {id} = useParams();
@@ -47,6 +49,7 @@ function Edit() {
 
   return (
     <>
+    <Navbar/>
     <h1>Update : {id}</h1>
     <div className="main-container">
         <form className="link-form">
@@ -91,6 +94,7 @@ function Edit() {
           </button>
         </form>
     </div>
+    <Footer/>
     <Toaster/>
     </>
   )

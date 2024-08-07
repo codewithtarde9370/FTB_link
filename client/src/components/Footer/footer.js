@@ -43,7 +43,7 @@ function Footer() {
           <ul>
             <li><Link to="/">Home</Link></li>
             <li><Link to="/links">Links</Link></li>
-            <li><Link to="/cars">profile</Link></li>
+            <li><Link to="/about">About</Link></li>
           </ul>
         </div>       
 

@@ -6,6 +6,7 @@ import {createBrowserRouter,RouterProvider} from 'react-router-dom'
 import SignUp from './../src/views/Signup/signup'
 import Login from './../src/views/Login/login'
 import Edit from './../src/views/Edit/edit'
+import AboutUs from './views/AboutUS/about';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
   {
     path: "/edit/:id",
     element: <Edit/>
+  },
+  {
+    path: "/about",
+    element: <AboutUs/>
   },
   {
     path: "*",

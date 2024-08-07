@@ -19,6 +19,7 @@ function Navbar() {
       <div className={`nav-item-container ${isOpen ? 'open' : ''}`}>
         <Link to="/" className='nav-item'>Home</Link>
         <Link to="/linkcard" className='nav-item'>My Links</Link>
+        <Link to="/about" className='nav-item'>About Us</Link>
       </div>
       <div className='icon-container'>
         <button className='btn' onClick={() => {
