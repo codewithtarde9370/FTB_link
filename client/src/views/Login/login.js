@@ -20,17 +20,14 @@ function Login() {
         email: email,
         password: password
       })
-
       if(response.data.success) {
         toast.success(response.data.message)
-        console.log("response.data.message",response.data.message)
        
         localStorage.setItem('currentUser', JSON.stringify(response.data.data));
-        console.log("reached here")
         toast.loading('Redirecting to dashboard...')
-        console.log("toast com")
-        window.location.href = '/'
-        console.log("redirection com")
+        setTimeout(()=>{
+          window.location.href = '/'
+        },3000)
       } 
       else {
         console.log(response.data.message)

@@ -47,6 +47,9 @@ function SignUp() {
       console.error('Registration failed:', error);
       toast.error('Registration failed. Please try again.');
     }
+    setTimeout(()=>{
+      window.location.href = '/login'
+    })
   };
 
   return (<>
