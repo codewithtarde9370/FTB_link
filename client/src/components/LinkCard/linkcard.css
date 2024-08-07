@@ -1,23 +1,40 @@
 .card {
+  position: relative;
     background-color: #fffffe;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 15px;
+    padding: 15px 15px;
     margin: 20px;
     transition: box-shadow 0.3s ease;
   }
-  
+  img{
+    height: 30px;
+  }
+ 
+  .icn{
+    margin: 0px 5px;
+    cursor: pointer;
+  }
   .card:hover {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   }
+  .head-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom:1px solid #666;
+  }
+  .icons{
+    padding: 0px 5px;
+  }
   
   .title {
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+display: inline;
     font-size: 18px;
     font-weight: bold;
-    margin-bottom: 10px;
-    color: #333;
-  }
+color: #d3233d;  
+text-transform: capitalize
+;}
   
   .key {
     padding-right: 5px;
@@ -27,21 +44,36 @@
   
   .target, 
   .target:hover, 
-  .target:focus {
+  .target:focus{
     color: #007bff;
     text-decoration: none;
     word-break: break-all;
+  }
+  a{
+    text-decoration: none;
   }
   
   .target:hover {
     text-decoration: underline;
   }
   
-  .views, .timestamp {
+   .timestamp {
+    position: absolute;
     font-size: 14px;
     color: #666;
     margin-top: 8px;
+    bottom: -10px;
   }
+  .views{
+    position: absolute;
+    font-size: 14px;
+    color: #666;
+    bottom: -10px;
+    margin-top: 8px;
+    right: 10px;
+    
+  }
+  
   
   @media (max-width: 768px) {
     .card {

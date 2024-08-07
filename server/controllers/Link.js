@@ -2,7 +2,7 @@ import User from "../models/User.js";
 import Link from "./../models/Link.js";
 
 
-const postlink =  async(req,res) => {
+const postlink =  async (req,res) => {
     const {target, slug, title, user} = req.body;
 
     const link = new Link({
@@ -53,9 +53,20 @@ const getRedirectSlug = async (req, res) => {
         });
     }
 
-    link.views = link.views + 1;
+    link.views = link.views + 1; 
     await link.save();
     res.redirect(link.target);
 }
 
-export {postlink, getRedirectSlug, getLinks}
+const deleteLink = async (req, res) => {
+  const {id} = req.params; //query mein quesmark ata hai, yaha hum ne id pass ki hai jo req ke param se hjo humne id mein dala hai
+
+  const response = await Link.deleteOne({_id : id});
+  res.json({
+    success: true,
+    message:"Link deleted Successfully!",
+    data:null,
+  })
+}
+
+export {postlink, getRedirectSlug, getLinks, deleteLink}

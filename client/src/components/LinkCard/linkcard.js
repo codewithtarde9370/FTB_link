@@ -1,17 +1,37 @@
 import React from 'react'
 import './linkcard.css'
+import Delete from './../LinkCard/delete.png'
+import Edit from  './../LinkCard/edit.png'
+import Copy from './../LinkCard/copy.png'
+import axios from 'axios'
+import toast,{Toaster} from 'react-hot-toast'
 
-function LinkCard({_id,title,slug,target,views, createdAt}) {
+function LinkCard({_id,title,slug,target,views, createdAt,loadLinks}) {
   const shorturl = `${process.env.REACT_APP_API_URL}/${slug}`
+
+  const deleteLink = async()=>{
+    const response = await axios.delete(`${process.env.REACT_APP_API_URL}/link/${_id}`)
+    console.log("Link deleted !!")
+    toast.success(response.data.message)
+    loadLinks();
+  }
 
   return(
     <div className='card'>
-        <h3 className='title'>
+   <div className='head-container'>
+   <p className='title'>
           <span className='key'>
-            Title:
             </span> 
             {title || "Untitle"}
-            </h3>
+            </p>
+  <div className='icons'>
+  <img src={Edit} title='Edit Link Details' className='edit-btn icn'/>
+    <img src={Delete} title='Delete Link' className='del-btn icn' onClick={deleteLink} />
+    <img className='copy-btn icn'title='Copy Link' src={Copy}/>
+  </div>
+    
+   </div>
+        
     <p>
       <span className='key'>
         Target URL:
@@ -33,8 +53,9 @@ function LinkCard({_id,title,slug,target,views, createdAt}) {
               </a>
               </p>
 
-        <p className='views'>{views}</p>
-        <p className='timestamp'>{createdAt}</p>
+        <p className='views'>{views} views</p>
+        <p className='timestamp'>{new Date(createdAt).toLocaleString()}</p>
+      <Toaster/>
     </div>
   )
 }

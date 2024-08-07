@@ -10,8 +10,6 @@ function Login() {
   const [password, setPassword] = useState('')
 
   const loginNow = async () => {
-
-    
     if (!email || !password) {
       toast.error('Please fill in both fields');
       return;
@@ -23,19 +21,13 @@ function Login() {
         password: password
       })
 
-      if (response.data.success) {
-
+      if(response.data.success) {
         toast.success(response.data.message)
         console.log(response.data.message)
        
-
         localStorage.setItem('currentUser', JSON.stringify(response.data.data))
-
         toast.loading('Redirecting to dashboard...')
-
-        setTimeout(() => {
-          window.location.href = '/'
-        }, 1000)
+        window.location.href = '/'
       } 
       else {
         console.log(response.data.message)

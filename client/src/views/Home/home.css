@@ -28,6 +28,8 @@
     border: none;
 }
 .link-btn{
+    font-size: 18px;
+    color:#232946;
     display: block;
     background-color: #eebbc3;
     padding: 10px;

@@ -3,6 +3,7 @@ import "./home.css";
 import axios from "axios";
 import { Toaster, toast } from "react-hot-toast";
 import LinkCard from "../../components/LinkCard/linkcard";
+import Navbar from "../../components/Navbar/Navbar";
 
 function Home() {
   const [user, setUser] = useState({});
@@ -11,8 +12,23 @@ function Home() {
     target: "",
     slug: "",
   });
-
   const [allLinks, setAllLinks] = useState([]);
+
+  useEffect(() => {
+    const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+    console.log('Current User:', currentUser);
+  
+    if (currentUser) {
+      setUser(currentUser);
+    }
+  
+    if (!currentUser) {
+      console.log('No current user, redirecting to login...');
+      window.location.href = "/login";
+    }
+  }, []);
+  
+
 
   const shortenUrl = async () => {
     const { title, target, slug } = linkData;
@@ -23,8 +39,7 @@ function Home() {
     }
 
     try {
-      const response = await axios.post(
-        `${process.env.REACT_APP_API_URL}/link`,
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/link`,
         {
           title: title,
           slug: slug,
@@ -47,29 +62,9 @@ function Home() {
       console.error("Error creating link:", error);
       toast.error("Failed to create link. Please try again.");
     }
+    loadLinks();
   };
 
-  // const fetchAllLinks = async () => {
-  //    const response = await  axios.get(`${process.env.REACT_APP_API_URL}/links`)
-  //    setAllLinks(response.data.data)
-  //    console.log(response.data.data)
-  // }
-
-  // useEffect(()=>{
-  //   fetchAllLinks()
-  // },[])
-
-  useEffect(() => {
-    const currentUser = JSON.parse(localStorage.getItem("currentUser"));
-
-    if (currentUser) {
-      setUser(currentUser);
-    }
-
-    if (!currentUser) {
-      window.location.href = "/login";
-    }
-  }, []);
 
   const loadLinks = async () => {
     if (!user._id) {
@@ -93,6 +88,7 @@ function Home() {
   }, [user]);
   return (
     <>
+       <Navbar/>
       <h1 className="heading">Hello {user.fullName} 👋</h1>
       <p className="heading">
         Tired of writing long URLs?😥 Create a Shortcut 🤩
@@ -154,6 +150,7 @@ function Home() {
                   slug={slug}
                   views={views}
                   createdAt={createdAt}
+                  loadLinks={loadLinks}
                 />
               );
             })

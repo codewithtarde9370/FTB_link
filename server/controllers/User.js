@@ -66,7 +66,7 @@ const postLogin = async (req, res) => {
 
   const user = await User.findOne({
     email: email,
-    password: password
+    password: password,
   });
 
   if (user) {
