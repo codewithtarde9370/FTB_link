@@ -69,4 +69,27 @@ const deleteLink = async (req, res) => {
   })
 }
 
-export {postlink, getRedirectSlug, getLinks, deleteLink}
+const putLinkById = async (req, res) => {
+    const { title, target, slug } = req.body;
+
+    const { id } = req.params;
+
+     await Link.updateOne({ _id: id},{
+      $set: {
+            title: title,
+            slug: slug,
+            target: target,
+      }
+    })
+
+    const updateLink = await Link.findById(id)
+
+    res.json({
+      success: true,
+      data: updateLink,
+      message: "Link updated successfully",
+    });
+
+}
+
+export {postlink, getRedirectSlug, getLinks, deleteLink,putLinkById }

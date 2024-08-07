@@ -5,6 +5,7 @@ import Edit from  './../LinkCard/edit.png'
 import Copy from './../LinkCard/copy.png'
 import axios from 'axios'
 import toast,{Toaster} from 'react-hot-toast'
+import { Link } from 'react-router-dom'
 
 function LinkCard({_id,title,slug,target,views, createdAt,loadLinks}) {
   const shorturl = `${process.env.REACT_APP_API_URL}/${slug}`
@@ -25,9 +26,27 @@ function LinkCard({_id,title,slug,target,views, createdAt,loadLinks}) {
             {title || "Untitle"}
             </p>
   <div className='icons'>
-  <img src={Edit} title='Edit Link Details' className='edit-btn icn'/>
-    <img src={Delete} title='Delete Link' className='del-btn icn' onClick={deleteLink} />
-    <img className='copy-btn icn'title='Copy Link' src={Copy}/>
+
+ <Link to={`/edit/${_id}`}>
+   <img 
+   src={Edit} 
+   title='Edit Link Details' 
+   className='edit-btn icn'
+   alt='edit-icons'/>
+   </Link>
+
+    <img 
+    src={Delete} 
+    title='Delete Link' 
+    className='del-btn icn' 
+    onClick={deleteLink}
+    alt='edit-icons' />
+
+    <img 
+    className='copy-btn icn'
+    title='Copy Link' 
+    src={Copy} 
+    alt='edit-icons'/>
   </div>
     
    </div>
