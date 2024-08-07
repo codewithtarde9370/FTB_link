@@ -4,6 +4,7 @@ import axios from "axios";
 import { Toaster, toast } from "react-hot-toast";
 import LinkCard from "../../components/LinkCard/linkcard";
 import Navbar from "../../components/Navbar/Navbar";
+import Footer from "../../components/Footer/footer";
 
 function Home() {
   const [user, setUser] = useState({});
@@ -64,8 +65,6 @@ function Home() {
     }
     loadLinks();
   };
-
-
   const loadLinks = async () => {
     if (!user._id) {
       return;
@@ -159,8 +158,10 @@ function Home() {
           )}
         </div>
       </div>
+      <Footer/>
 
       <Toaster />
+
     </>
   );
 }
