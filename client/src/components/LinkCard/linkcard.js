@@ -17,6 +17,17 @@ function LinkCard({_id,title,slug,target,views, createdAt,loadLinks}) {
     loadLinks();
   }
 
+  const copyToClipboard = () => {
+    navigator.clipboard.writeText(shorturl)
+      .then(() => {
+        toast.success('Link copied to clipboard!');
+      })
+      .catch(err => {
+        toast.error('Failed to copy the link.');
+        console.error('Could not copy text: ', err);
+      });
+  };
+
   return(
     <div className='card'>
    <div className='head-container'>
@@ -46,6 +57,7 @@ function LinkCard({_id,title,slug,target,views, createdAt,loadLinks}) {
     className='copy-btn icn'
     title='Copy Link' 
     src={Copy} 
+    onClick={copyToClipboard}
     alt='edit-icons'/>
   </div>
     
