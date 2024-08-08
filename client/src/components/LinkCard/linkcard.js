@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './linkcard.css'
 import Delete from './../LinkCard/delete.png'
 import Edit from  './../LinkCard/edit.png'
 import Copy from './../LinkCard/copy.png'
+import Copied from './../LinkCard/copied.png'
 import axios from 'axios'
 import toast,{Toaster} from 'react-hot-toast'
 import { Link } from 'react-router-dom'
@@ -17,10 +18,14 @@ function LinkCard({_id,title,slug,target,views, createdAt,loadLinks}) {
     loadLinks();
   }
 
+  const [copied, setCopied] = useState(false)
+
   const copyToClipboard = () => {
     navigator.clipboard.writeText(shorturl)
       .then(() => {
+        setCopied(true);
         toast.success('Link copied to clipboard!');
+        setTimeout(() => setCopied(false), 3000); 
       })
       .catch(err => {
         toast.error('Failed to copy the link.');
@@ -56,7 +61,7 @@ function LinkCard({_id,title,slug,target,views, createdAt,loadLinks}) {
     <img 
     className='copy-btn icn'
     title='Copy Link' 
-    src={Copy} 
+    src={copied === false ? Copy : Copied} 
     onClick={copyToClipboard}
     alt='edit-icons'/>
   </div>
