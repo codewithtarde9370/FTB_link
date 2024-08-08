@@ -1,3 +1,4 @@
+import { LinkOffTwoTone } from "@mui/icons-material";
 import User from "../models/User.js";
 import Link from "./../models/Link.js";
 
@@ -68,6 +69,23 @@ const deleteLink = async (req, res) => {
     data:null,
   })
 }
+const getLinkById = async (req,res) => {
+    const {id} = req.params;
+    const link = await Link.findById(id);
+    if (!link) {
+
+        return res.status(404).json({
+          success: false,
+          message: "Link not found",
+        });
+      }
+    
+      res.json({
+        success: true,
+        data: link,
+        message: "Link fetched successfully",
+      });
+}
 
 const putLinkById = async (req, res) => {
     const { title, target, slug } = req.body;
@@ -83,6 +101,7 @@ const putLinkById = async (req, res) => {
     })
 
     const updateLink = await Link.findById(id)
+    console.log(updateLink);
 
     res.json({
       success: true,
@@ -92,4 +111,4 @@ const putLinkById = async (req, res) => {
 
 }
 
-export {postlink, getRedirectSlug, getLinks, deleteLink,putLinkById }
+export {postlink, getRedirectSlug, getLinks, deleteLink,putLinkById ,getLinkById}

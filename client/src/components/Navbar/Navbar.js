@@ -16,7 +16,7 @@ function Navbar() {
       <div className='nav-toggle' onClick={toggleNavbar}>
         ☰
       </div>
-      <img src={LinkIcon} className='logo' alt='linkIcon'/> <p className='title'>Quicks</p>
+       <p className='title-quicks'><img src={LinkIcon} className='logo' alt='linkIcon'/>Quicks</p>
       <div className={`nav-item-container ${isOpen ? 'open' : ''}`}>
         <Link to="/" className='nav-item'>Home</Link>
         <Link to="/linkcard" className='nav-item'>My Links</Link>
