@@ -48,11 +48,14 @@
 ### 1. Home Page
 ![Home Page](./home.png)
 
-### 2. Add New Link
-![Add Link](./add_link.png)
+### 2. Update Link
+![Add Link](./update.png)
 
-### 3. Manage Links
-![Manage Links](./manage_links.png)
+### 3. Login
+![login](./login.png)
+
+### 4. Signup
+![Signup](./signup.png)
 
 ## Future Enhancements
 
