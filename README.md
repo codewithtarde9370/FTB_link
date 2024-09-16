@@ -10,6 +10,7 @@
 - **Link Management:** View and manage all your shortened links in one place.
 - **Copy to Clipboard:** Quickly copy shortened links for easy sharing.
 - **Delete Links:** Remove any unwanted or expired shortened links.
+- **Analytics:** Add features to track how many times each shortened URL has been visited.
 - **Responsive Design:** The app is fully responsive, making it accessible across all device sizes.
 
 ## Tech Stack
@@ -61,5 +62,4 @@
 
 
 - **Link Expiry:** Implement link expiration based on user-specified time.
-- **Analytics:** Add features to track how many times each shortened URL has been visited.
 - **QR Code Generation:** Generate QR codes for each shortened link for easier mobile access.
