@@ -131,9 +131,10 @@ function Home() {
             className="link-input"
           />
           <button type="button" className="link-btn" onClick={shortenUrl}>
-            Create Shortcut
+            Create ShortUrl
           </button>
         </form>
+        
 
         <div className="render-links">
           <h2 className="sub-heading">My Links</h2>
